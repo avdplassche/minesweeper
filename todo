@@ -1,0 +1,8 @@
+Handle les bords (pour c4 par exemple)
+->mais au choix
+
+essayer liste chainee avec
+pointeur vers index - map->width par exemple
+
+
+faire doc pour chaque function
