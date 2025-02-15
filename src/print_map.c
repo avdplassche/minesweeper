@@ -2,18 +2,35 @@
 #include "minesweeper.h"
 
 
+void	print_cells(t_map *map)
+{
+	int	i;
+	int	j;
 
-// void	print_cells(t_cell *cells)
-// {
-// 	int	i;
-// 	int	j;
+	i = 0;
+	j = 0;
+	while (i < map->height)
+	{
+		j = 0;
+		while(j < map->width)
+		{
+			printf("%c", map->table[i][j].value);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+	printf("\n");
+}
 
-
-// 	while
-
-
-// }
-
+void	print_map_datas(t_map *map)
+{
+	printf("Width : %d\n", map->width);
+	printf("Height : %d\n", map->height);
+	printf("Cells : %d\n", map->cell_amount);
+	printf("Mines : %d\n", map->mine_amount);
+	printf("\n");
+}
 /*
 Print Table Letter on the right side
 */
@@ -47,10 +64,10 @@ void print_map(t_map *map)
 	char	line_letter;
 
 	line_letter  = 'A';
-	cell = map->cells;
+	cell = map->table;
 	print_row_letter(map);
-	i = -1;
-	while (++i < map->height)
+	i = 0;
+	while (i < map->height)
 	{
 		printf("%c ", line_letter);
 		j = 0;
@@ -64,8 +81,23 @@ void print_map(t_map *map)
 				printf("  ");
 			j++;
 		}
+		i++;
 		line_letter++;
 		printf("\n");
 	}
+	printf("\n");
+}
+
+void	print_borders(t_cell cell)
+{
+	printf("%d ", cell.nw_cell);
+	printf("%d ", cell.n_cell);
+	printf("%d\n", cell.ne_cell);
+	printf("%d ", cell.w_cell);
+	printf("%d ", cell.index);
+	printf("%d\n", cell.e_cell);
+	printf("%d ", cell.sw_cell);
+	printf("%d ", cell.s_cell);
+	printf("%d\n", cell.se_cell);
 	printf("\n");
 }

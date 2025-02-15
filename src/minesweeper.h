@@ -15,7 +15,7 @@ typedef struct s_cell		t_cell;
 typedef struct s_cell
 {
 	bool		fliped;
-	char		value;
+	int			value;
 	int			index;
 	int			nw_cell;
 	int			n_cell;
@@ -29,19 +29,20 @@ typedef struct s_cell
 
 typedef struct s_map
 {
-	int			mine_number;
+	int			mine_amount;
 	int			width;
 	int			height;
 	int			cell_amount;
-	t_cell		**cells;
+	t_cell		**table;
 }				t_map;
 
 
 
-void	init_map(t_map *map, char *choice, char **av);
+void	init_map(t_map *map, char **av);
 void	generate_map(t_map *map);
 void	print_map(t_map *map);
 
-void	print_map_choice();
+void 	print_map_datas(t_map *map);
+void	print_cells(t_map *map);
 
 #endif
