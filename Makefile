@@ -6,6 +6,7 @@ CFILES	=	src/main.c\
 			src/map_generation.c\
 			src/print_map.c\
 			src/init_map.c\
+			src/play.c\
 
 OBJ		:= $(CFILES:.c=.o)
 

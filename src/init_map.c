@@ -1,7 +1,7 @@
 
 #include "minesweeper.h"
 
-bool	g_fliped = true;
+bool	g_fliped = false;
 
 t_cell	check_cell_borders(t_map *map, t_cell cell, int i, int j)
 {
@@ -73,6 +73,9 @@ void init_map(t_map *map, char **av)
 	map->width = atoi(av[2]);
 	map->cell_amount = map->width * map->height;
 	map->mine_amount = map->cell_amount / 10;
+	map->win = 0;
+	map->lose = 0;
+	map->turn_one = 1;
 	table = (t_cell **)malloc(sizeof(t_cell *) * map->height);
 	print_map_datas(map);
 	while (++i < map->width)
@@ -81,7 +84,7 @@ void init_map(t_map *map, char **av)
 		table[i] = (t_cell *)malloc(sizeof(t_cell) * (map->width));
 		while (++j < map->height)
 		{
-			table[i][j].value = '-';
+			table[i][j].value = ' ';
 			table[i][j].fliped = g_fliped;
 		}
 	}

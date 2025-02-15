@@ -29,6 +29,9 @@ typedef struct s_cell
 
 typedef struct s_map
 {
+	bool		turn_one;
+	bool		win;
+	bool		lose;
 	int			mine_amount;
 	int			width;
 	int			height;
@@ -39,8 +42,9 @@ typedef struct s_map
 
 
 void	init_map(t_map *map, char **av);
-void	generate_map(t_map *map);
+void	generate_map(t_map *map, char *move);
 void	print_map(t_map *map);
+t_map	*play(t_map *map, char *move);
 
 void 	print_map_datas(t_map *map);
 void	print_cells(t_map *map);

@@ -14,7 +14,10 @@ void	print_cells(t_map *map)
 		j = 0;
 		while(j < map->width)
 		{
-			printf("%c", map->table[i][j].value);
+			// if (map->table[i][j].fliped == true)
+			printf("%c ", map->table[i][j].value);
+			// else
+				// printf(" ");
 			j++;
 		}
 		printf("\n");
